@@ -1,24 +1,22 @@
-
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "mx/version"
-
-Gem::Specification.new do |spec|
-  spec.name          = "mx"
-  spec.version       = Mx::VERSION
-  spec.authors       = ["vshatravenko"]
-  spec.email         = ["vshatravenko@heliostech.fr"]
-
-  spec.summary       = %q{MX}
-  spec.description   = %q{A truly modular CLI for modern cloud and beyond}
-  spec.license       = "MIT"
-
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
-  spec.require_paths = ["lib"]
-
-  spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+# Ensure we require the local version and not one we might have installed already
+require File.join([File.dirname(__FILE__),'lib','mx','version.rb'])
+spec = Gem::Specification.new do |s|
+  s.name = 'mx'
+  s.version = Mx::VERSION
+  s.author = 'Your Name Here'
+  s.email = 'your@email.address.com'
+  s.homepage = 'http://your.website.com'
+  s.platform = Gem::Platform::RUBY
+  s.summary = 'A description of your project'
+  s.files = `git ls-files`.split("
+")
+  s.require_paths << 'lib'
+  s.extra_rdoc_files = ['README.rdoc','mx.rdoc']
+  s.rdoc_options << '--title' << 'mx' << '--main' << 'README.rdoc' << '-ri'
+  s.bindir = 'bin'
+  s.executables << 'mx'
+  s.add_development_dependency('rake')
+  s.add_development_dependency('rdoc')
+  s.add_development_dependency('aruba')
+  s.add_runtime_dependency('gli','2.18.0')
 end

@@ -1,0 +1,6 @@
+= mx
+
+Describe your project here
+
+:include:mx.rdoc
+

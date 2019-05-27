@@ -1,0 +1,5 @@
+= mx
+
+Generate this with
+    mx _doc
+After you have described your command line interface
